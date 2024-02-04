@@ -5,10 +5,10 @@ function emailValidation(email) {
   return emailPattern.test(email);
 }
 
-function passwordValidation(email) {
+function passwordValidation(password) {
   const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,30}$/
 
-  return passwordPattern.test(email);
+  return passwordPattern.test(password);
 }
 
 module.exports = {emailValidation, passwordValidation};
