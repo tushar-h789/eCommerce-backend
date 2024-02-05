@@ -59,8 +59,8 @@ const registrationController = async (req, res) => {
     });
 
     const mailOptions = {
-      from: "tushar789imran@gmail.com",
-      to: "tusharimran789@gmail.com",
+      from: process.env.BASE_EMAIL,
+      to: email,
       subject: "Please Verify your email",
       html: `<div style="display: flex;width: 600px;height: 200px;"> <div style="width: 50%;height: 100px;">Please Verify your email by click on this button <a href="https://www.figma.com/">Verify</a> ${otp}</div></div>`,
     };
