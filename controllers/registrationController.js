@@ -48,6 +48,13 @@ const registrationController = async (req, res) => {
     });
 
     await user.save();
+    res.send({
+      id: user._id,
+      name: user.name,
+      email: user.email,
+      role: user.role,
+      verify: user.verify,
+    })
 
     // Send mail using nodemailer
     const transporter = nodemailer.createTransport({
