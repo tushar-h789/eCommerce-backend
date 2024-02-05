@@ -9,7 +9,9 @@ const otpController = async (req, res)=>{
 
     if(updateOtp[0].otp == otp){
         await User.findOneAndUpdate({email: email}, {otp: "", verify: true})
-        res.send("OTP verifyed")
+        res.send("OTP verified")
+    }else {
+        res.send("OTP dose not matched")
     }
 }
 
