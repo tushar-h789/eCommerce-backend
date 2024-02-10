@@ -8,11 +8,17 @@ const loginController = async (req, res) => {
 
     // Find the user in the database based on the provided email
     const existingUser = await User.findOne({ email });
+    console.log(existingUser);
 
     // Check if the user exists
     if (!existingUser) {
       // If the user is not found, send a 401 response
       return res.status(401).send({ error: "Credentials are not valid" });
+    }
+
+    if (existingUser.role === "User") {
+      // If the user's role is "User," send an error response
+      return res.status(403).send({ error: "User does not allow" });
     }
 
     // Compare hashed password using bcrypt
@@ -26,8 +32,6 @@ const loginController = async (req, res) => {
       // Check if the password matches
       if (result) {
         // If the password matches, send a success response
-        // res.send({ success: "Login successful" });
-        // Send success response
         res.status(200).send({
           id: existingUser._id,
           name: existingUser.name,

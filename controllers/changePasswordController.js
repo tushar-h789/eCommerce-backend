@@ -1,3 +1,4 @@
+const { passwordValidation } = require("../helpers/validation");
 const User = require('../model/userSchema');
 const jwt = require('jsonwebtoken');
 const bcrypt = require("bcrypt");
@@ -6,6 +7,12 @@ const changePasswordController = async (req, res) => {
   try {
     // Extract email and password from the request body
     const { token, password } = req.body;
+
+    if (!password || !passwordValidation(password)) {
+      return res.status(400).send(
+        "Please enter one uppercase letter, one lowercase letter, and one number or special character."
+      );
+    }
 
     // Check if the token is empty
     if (!token) {
