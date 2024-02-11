@@ -1,5 +1,6 @@
 const express = require('express');
-const _ = express.Router()
+const router = express.Router();
+
 const registrationController = require('../../controllers/registrationController');
 const otpController = require('../../controllers/otpController');
 const loginController = require('../../controllers/loginController');
@@ -7,11 +8,12 @@ const forgotPasswordController = require('../../controllers/fotgotPasswordContro
 const changePasswordController = require('../../controllers/changePasswordController');
 const userListController = require('../../controllers/userListController');
 
-_.post('/registration', registrationController)
-_.post('/otpverify', otpController)
-_.post('/login', loginController)
-_.post('/forgotpassword', forgotPasswordController)
-_.post('/changepassword', changePasswordController)
-_.get('/userlist', userListController)
+// Routes
+router.post('/registration', registrationController);
+router.post('/otpverify', otpController);
+router.post('/login', loginController);
+router.post('/forgotpassword', forgotPasswordController);
+router.post('/changepassword', changePasswordController);
+router.get('/userlist', userListController);
 
-module.exports = _;
+module.exports = router;
