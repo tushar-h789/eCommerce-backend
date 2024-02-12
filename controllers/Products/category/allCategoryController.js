@@ -1,9 +1,12 @@
-const Category = require("../../model/categorySchema");
+const Category = require("../../../model/categorySchema");
 
 const allCategoryController = async (req, res) => {
   try {
     // Fetch all categories and populate the 'ownerId' field, excluding the 'password' field from the owner's information.
-    const categoryData = await Category.find({}).populate("ownerId", "-password");
+    const categoryData = await Category.find({}).populate(
+      "ownerId",
+      "-password"
+    );
 
     // Send the category data as a response.
     res.send(categoryData);
