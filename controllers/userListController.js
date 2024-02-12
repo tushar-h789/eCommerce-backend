@@ -2,12 +2,12 @@ const User = require("../model/userSchema");
 
 const userListController = async (req, res) => {
   try {
-    // Retrieve all user data from the database
-    const userData = await User.find({});
-    
+    // Retrieve all user data from the database excluding the password field
+    const userData = await User.find({}, { password: 0 });
+
     // Log user data for debugging
     console.log(userData);
-    
+
     // Send the user data in the response
     res.send(userData);
   } catch (error) {

@@ -37,7 +37,7 @@ const loginController = async (req, res) => {
           name: existingUser.name,
           email: existingUser.email,
           role: existingUser.role,
-          verify: existingUser.verify
+          verify: existingUser.verify,
         });
       } else {
         // If the password does not match, send a 401 response
