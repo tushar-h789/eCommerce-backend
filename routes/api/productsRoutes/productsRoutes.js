@@ -1,13 +1,18 @@
 const express = require("express");
-const allCategoryController = require("../../../controllers/Products/category/allCategoryController");
 const createSubcategoryController = require("../../../controllers/Products/subCategory/createSubCategoryController");
-const categoryController = require("../../../controllers/Products/category/categoryController");
-const allSubCategoryController = require("../../../controllers/Products/subCategory/allSubCategoryController");
+const createCategoryController = require("../../../controllers/Products/category/createCategoryController");
+const showCategoryController = require("../../../controllers/Products/category/showCategoryController");
+const showSubCategoryController = require("../../../controllers/Products/subCategory/showSubCategoryController");
+const deleteCategoryController = require("../../../controllers/Products/category/deleteCategoryController");
 const router = express.Router();
 
-router.post("/createcategory", categoryController);
-router.get("/allcategory", allCategoryController);
+// category api
+router.post("/createcategory", createCategoryController);
+router.get("/allcategory", showCategoryController);
+router.delete("/deletecategory", deleteCategoryController);
+
+// subCategory api
+router.get("/allsubcategory", showSubCategoryController);
 router.post("/createsubcategory", createSubcategoryController);
-router.get("/allsubcategory", allSubCategoryController);
 
 module.exports = router;
