@@ -1,13 +1,10 @@
 const SubCategory = require("../../../model/subCategorySchema");
 
 // Controller function for fetching all subcategories
-const showSubCategoryController = async (req, res) => {
+const viewSubCategoryController = async (req, res) => {
   try {
     // Retrieve all subcategories from the database, populating the 'categoryId' field
     const allSubCategory = await SubCategory.find({}).populate('categoryId');
-
-    // Log the retrieved subcategories for verification (optional)
-    console.log(allSubCategory);
 
     // Send the retrieved subcategories as a response to the client
     // Alternatively, you can send a success message along with the data
@@ -21,4 +18,4 @@ const showSubCategoryController = async (req, res) => {
 };
 
 // Export the allSubCategoryController function
-module.exports = showSubCategoryController;
+module.exports = viewSubCategoryController;

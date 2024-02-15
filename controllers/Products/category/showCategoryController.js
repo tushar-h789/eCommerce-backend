@@ -10,6 +10,7 @@ const showCategoryController = async (req, res) => {
 
     // Send the category data as a response.
     res.send({ success: "categories found", data: categoryData });
+    // console.log(categoryData);
   } catch (error) {
     // Handle any unexpected errors and send a 500 response.
     console.error("Error fetching all categories:", error);

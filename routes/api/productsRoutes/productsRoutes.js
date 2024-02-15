@@ -2,9 +2,13 @@ const express = require("express");
 const createSubcategoryController = require("../../../controllers/Products/subCategory/createSubCategoryController");
 const createCategoryController = require("../../../controllers/Products/category/createCategoryController");
 const showCategoryController = require("../../../controllers/Products/category/showCategoryController");
-const showSubCategoryController = require("../../../controllers/Products/subCategory/showSubCategoryController");
 const deleteCategoryController = require("../../../controllers/Products/category/deleteCategoryController");
 const editCategoryController = require("../../../controllers/Products/category/editCategoryController");
+const viewSubCategoryController = require("../../../controllers/Products/subCategory/viewSubCategoryController");
+const deleteSubCategoryController = require("../../../controllers/Products/subCategory/deleteSubCategoryController");
+const editSubCategoryController = require("../../../controllers/Products/subCategory/editSubCategoryController");
+const approveCategoryController = require("../../../controllers/Products/category/approveCategoryController");
+const approveSubCategoryController = require("../../../controllers/Products/subCategory/approveSubCategoryController");
 const router = express.Router();
 
 // category api
@@ -12,9 +16,13 @@ router.post("/createcategory", createCategoryController);
 router.get("/allcategory", showCategoryController);
 router.delete("/deletecategory", deleteCategoryController);
 router.post("/editcategory", editCategoryController);
+router.post("/approvecategory", approveCategoryController);
 
 // subCategory api
-router.get("/allsubcategory", showSubCategoryController);
+router.get("/viewsubcategory", viewSubCategoryController);
 router.post("/createsubcategory", createSubcategoryController);
+router.delete("/deletesubcategory", deleteSubCategoryController);
+router.post("/editsubcategory", editSubCategoryController);
+router.post("/approvesubcategory", approveSubCategoryController);
 
 module.exports = router;
