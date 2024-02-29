@@ -9,6 +9,7 @@ const deleteSubCategoryController = require("../../../controllers/Products/subCa
 const editSubCategoryController = require("../../../controllers/Products/subCategory/editSubCategoryController");
 const approveCategoryController = require("../../../controllers/Products/category/approveCategoryController");
 const approveSubCategoryController = require("../../../controllers/Products/subCategory/approveSubCategoryController");
+const createProductsController = require("../../../controllers/Products/products/createProductsController");
 const router = express.Router();
 
 // category api
@@ -24,5 +25,8 @@ router.post("/createsubcategory", createSubcategoryController);
 router.delete("/deletesubcategory", deleteSubCategoryController);
 router.post("/editsubcategory", editSubCategoryController);
 router.post("/approvesubcategory", approveSubCategoryController);
+
+//products api
+router.post("/createproducts", createProductsController);
 
 module.exports = router;
