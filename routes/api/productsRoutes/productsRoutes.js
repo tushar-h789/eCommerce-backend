@@ -17,6 +17,7 @@ const router = express.Router();
 const multer = require("multer");
 const variantController = require("../../../controllers/Products/products/variantController");
 const viewProductsController = require("../../../controllers/Products/products/viewProductsController");
+const secureApi = require("../../../middleware/secureApi");
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -32,7 +33,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 // category api
-router.post("/createcategory", createCategoryController);
+router.post("/createcategory", secureApi, createCategoryController);
 router.get("/allcategory", showCategoryController);
 router.delete("/deletecategory", deleteCategoryController);
 router.post("/editcategory", editCategoryController);
