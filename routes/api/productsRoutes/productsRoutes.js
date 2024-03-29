@@ -14,6 +14,23 @@ const createStoreController = require("../../../controllers/Products/store/creat
 const viewStoreController = require("../../../controllers/Products/store/viewStoreController");
 const router = express.Router();
 
+const multer = require("multer");
+const variantController = require("../../../controllers/Products/products/variantController");
+const viewProductsController = require("../../../controllers/Products/products/viewProductsController");
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "./uploads");
+  },
+  filename: function (req, file, cb) {
+    const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
+    cb(null, file.fieldname + "-" + uniqueSuffix+ "-"+ file.originalname);
+    console.log(file.fieldname + "-" + uniqueSuffix + "-"+ file.originalname);
+  },
+});
+
+const upload = multer({ storage: storage });
+
 // category api
 router.post("/createcategory", createCategoryController);
 router.get("/allcategory", showCategoryController);
@@ -29,10 +46,22 @@ router.post("/editsubcategory", editSubCategoryController);
 router.post("/approvesubcategory", approveSubCategoryController);
 
 //products api
-router.post("/createproducts", createProductsController);
+router.get('/viewproducts', viewProductsController)
+
+router.post(
+  "/createproducts",
+  upload.single("avatar"),
+  createProductsController
+);
+
+router.post(
+  "/variant",
+  upload.single("avatar"),
+  variantController
+);
 
 // store api
-router.get('/viewstore/:id', viewStoreController)
-router.post('/createstore', createStoreController)
+router.get("/viewstore/:id", viewStoreController);
+router.post("/createstore", createStoreController);
 
 module.exports = router;
