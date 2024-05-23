@@ -1,7 +1,7 @@
 const Variant = require("../../../model/variantSchema");
 
 const variantController = (req, res) => {
-  const { name, productId } = req.body;
+  const { name, productId, regularprice, salesprice, quantity  } = req.body;
 
   //   res.send(`/uploads/${req.file.filename}`);
   // console.log(req);
@@ -10,6 +10,9 @@ const variantController = (req, res) => {
     name: name,
     productId: productId,
     image: `/uploads/${req.file.filename}`,
+    regularprice: regularprice,
+    salesprice: salesprice,
+    quantity:  quantity
   });
   variant.save();
 

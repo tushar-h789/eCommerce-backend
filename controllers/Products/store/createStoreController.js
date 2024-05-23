@@ -7,7 +7,7 @@ const createStoreController = async (req, res) => {
 
     // Check if a store with the same storeName or tradeNumber already exists
     const existingStore = await Store.findOne({ $or: [{ storeName }, { tradeNumber }] });
-    console.log(existingStore);
+    // console.log(existingStore);
 
     // Check if nidNumber has more than 13 digits
     if (nidNumber.length > 13) {

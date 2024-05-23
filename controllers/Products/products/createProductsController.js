@@ -1,7 +1,7 @@
 const Products = require("../../../model/productSchema");
 
 const createProductsController = (req, res) => {
-  const { name, description, variant } = req.body;
+  const { name, description, variant, regularprice, salesprice, quantity } = req.body;
 
 //   res.send(`/uploads/${req.file.filename}`);
 
@@ -9,7 +9,10 @@ const createProductsController = (req, res) => {
       name: name,
       description: description,
       variant: variant,
-      image: `/uploads/${req.file.filename}`
+      image: `/uploads/${req.file.filename}`,
+      regularprice: regularprice,
+      salesprice: salesprice,
+      quantity:  quantity
   })
   product.save()
 

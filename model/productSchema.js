@@ -22,6 +22,16 @@ const productSchema = new Schema({
   image: {
     type: String,
   },
+  regularprice: {
+    type: Number,
+  },
+  salesprice: {
+    type: Number,
+  },
+  quantity: {
+    type: Number,
+  },
+  variantId: [{ type: mongoose.Schema.Types.ObjectId, ref: "Variant" }],
   // variant: [variantSchema],
 });
 
