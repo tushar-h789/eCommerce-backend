@@ -31,8 +31,11 @@ const productSchema = new Schema({
   quantity: {
     type: Number,
   },
-  variantId: [{ type: mongoose.Schema.Types.ObjectId, ref: "Variant" }],
-  // variant: [variantSchema],
+  variantsId: { type: mongoose.Schema.Types.ObjectId, ref: "Variant" },
+  subCategory: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "SubCategory",
+  },
 });
 
 module.exports = mongoose.model("Product", productSchema);
