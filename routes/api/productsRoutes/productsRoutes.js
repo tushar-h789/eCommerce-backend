@@ -19,6 +19,9 @@ const variantController = require("../../../controllers/Products/products/varian
 const viewProductsController = require("../../../controllers/Products/products/viewProductsController");
 const secureApi = require("../../../middleware/secureApi");
 const deleteProductController = require("../../../controllers/Products/products/deleteProductController");
+const editProductController = require("../../../controllers/Products/products/editProductController");
+const deleteStoreController = require("../../../controllers/Products/store/deleteStoreController");
+const editStoreController = require("../../../controllers/Products/store/editStoreController");
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -54,6 +57,7 @@ router.post(
   upload.single("avatar"),
   createProductsController
 );
+router.post("/eidtproduct", editProductController);
 router.delete("/deleteproduct", deleteProductController);
 
 // variant api
@@ -64,7 +68,10 @@ router.post(
 );
 
 // store api
-router.get("/viewstore/:id", viewStoreController);
+router.get("/viewstore", viewStoreController);
 router.post("/createstore", createStoreController);
+router.delete("/deletestore", deleteStoreController);
+router.post("/editstore", editStoreController);
+
 
 module.exports = router;
