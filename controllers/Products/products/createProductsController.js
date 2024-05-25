@@ -4,30 +4,40 @@ const createProductsController = (req, res) => {
   const {
     name,
     description,
-    variantsId,
+    // variantsId,
+    // subCategoryData,
     regularprice,
     salesprice,
     quantity,
-    subcategory,
   } = req.body;
-  console.log("Ami Output",name, variantsId);
+
+  // name: values.name,
+  // description: description,
+  // avatar: image,
+  // regularprice: values.regularprice,
+  // salesprice: values.salesprice,
+  // quantity: values.quantity,
+  // subCategoryData: subCategoryData,
+
+  console.log("Ami Output",name);
 
   //   res.send(`/uploads/${req.file.filename}`);
 
   const product = new Products({
     name: name,
     description: description,
-    variantsId: variantsId,
+    // variantsId: variantsId,
     image: `/uploads/${req.file.filename}`,
     regularprice: regularprice,
     salesprice: salesprice,
     quantity: quantity,
-    subcategory: subcategory,
+    // subCategoryData: subCategoryData,
   });
+
+  console.log("aaaaaaaaaaaaaa",product);
   product.save();
 
   res.send({ success: "product created" });
-  console.log(product);
 };
 
 module.exports = createProductsController;

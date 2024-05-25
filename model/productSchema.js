@@ -31,9 +31,10 @@ const productSchema = new Schema({
   quantity: {
     type: Number,
   },
-  variantsId: { type: mongoose.Schema.Types.ObjectId, ref: "Variant" },
-  subCategory: {
-    type: mongoose.Schema.Types.ObjectId,
+  // variantsId: { type: mongoose.Schema.Types.ObjectId, ref: "Variant" },
+  // variantsId: { type: mongoose.Types.ObjectId, ref: "Variant" },
+  subCategoryId: {
+    type: mongoose.Types.ObjectId,
     ref: "SubCategory",
   },
 });

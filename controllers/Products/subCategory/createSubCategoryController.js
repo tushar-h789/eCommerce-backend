@@ -11,7 +11,7 @@ const subCreateCategoryController = async (req, res) => {
 
     if (existingCategory) {
       // If the category already exists, send a response indicating it
-      return res.status(200).send("Sub Category Already Exists");
+      // return res.status(200).send("Sub Category Already Exists");
     } else {
       // Create a new Category instance based on the data
       const subCategory = new SubCategory({
@@ -23,7 +23,8 @@ const subCreateCategoryController = async (req, res) => {
       await subCategory.save();
 
       // Send a success response
-      res.status(200).send({ success: "Sub Category created successfully!" });
+      // res.status(200).send({ success: "Sub Category created successfully!" });
+      res.send(subCategory)
 
       // Log the category details for verification (optional)
       console.log(subCategory);
@@ -31,7 +32,7 @@ const subCreateCategoryController = async (req, res) => {
   } catch (error) {
     // Handle any unexpected errors and send a 500 response
     console.error("Error creating category:", error);
-    res.status(500).send({ error: "Internal Server Error" });
+    // res.status(500).send({ error: "Internal Server Error" });
   }
 };
 
