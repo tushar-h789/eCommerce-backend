@@ -4,7 +4,7 @@ const editCategoryController = async (req, res) => {
   try {
     // Extract categoryId from the request body
     const { id, name } = req.body;
-    console.log("Request Body:", req.body);
+    // console.log("Request Body:", req.body);
 
     // Convert the category name to lowercase for a case-insensitive search
     const lowercaseName = name.toLowerCase();

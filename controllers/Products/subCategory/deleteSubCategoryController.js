@@ -5,7 +5,7 @@ const deleteSubCategoryController = async (req, res) => {
   try {
     // Extract categoryId from the request body
     const { subCategoryId } = req.body;
-    console.log("Request Body:", req.body);
+    // console.log("Request Body:", req.body);
 
     // Find the category by id and delete it
     await DeleteSubCategory.findByIdAndDelete({ _id: subCategoryId });

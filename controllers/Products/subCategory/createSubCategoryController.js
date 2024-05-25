@@ -27,7 +27,7 @@ const subCreateCategoryController = async (req, res) => {
       res.send(subCategory)
 
       // Log the category details for verification (optional)
-      console.log(subCategory);
+      // console.log(subCategory);
     }
   } catch (error) {
     // Handle any unexpected errors and send a 500 response

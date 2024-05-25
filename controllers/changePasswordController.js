@@ -47,7 +47,7 @@ const changePasswordController = async (req, res) => {
         return res.status(400).send({ error: "Email and token do not match" });
       }
 
-      console.log(updatedUser);
+      // console.log(updatedUser);
 
       // Send a success response
       res.send({ success: "Password updated successfully" });

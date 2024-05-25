@@ -17,7 +17,7 @@ const variantController = (req, res) => {
   variant.save();
 
   res.send({ success: "Variant created" });
-  console.log(variant);
+  // console.log(variant);
 };
 
 module.exports = variantController;

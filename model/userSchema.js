@@ -9,13 +9,15 @@ const userSchema = new Schema({
     email: {
         type: String,
         required: true,
+        unique: true 
     },
     password: {
         type: String,
         required: true,
     },
     otp: {
-        type: String
+        type: String,
+        default: null
     },
     verify: {
         type: Boolean,
@@ -23,9 +25,17 @@ const userSchema = new Schema({
     },
     role: {
         type: String,
-        enum: ["Admin", "Marchant", "User"],
+        enum: ["Admin", "Merchant", "User"],
         default: "User"
-    }
+    },
+    isAdmin: {
+        type: Boolean,
+        default: false
+    },
+    isMerchant:{
+        type: Boolean,
+        default: false
+    } 
 });
 
 module.exports = mongoose.model("User", userSchema);

@@ -5,7 +5,7 @@ const deleteProductController = async (req, res) => {
   try {
     // Extract productId from the request body
     const { productId } = req.body;
-    console.log("Request Body:", req.body);
+    // console.log("Request Body:", req.body);
 
     // Ensure productId is defined and not null
     if (!productId) {

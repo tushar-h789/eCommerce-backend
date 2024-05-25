@@ -26,7 +26,7 @@ const createCategoryController = async (req, res) => {
       res.status(200).send({ success: "Category created successfully!" });
 
       // Log the category details for verification (optional)
-      console.log(category);
+      // console.log(category);
     }
   } catch (error) {
     // Handle any unexpected errors and send a 500 response

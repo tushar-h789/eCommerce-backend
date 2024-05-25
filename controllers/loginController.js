@@ -8,7 +8,7 @@ const loginController = async (req, res) => {
 
     // Find the user in the database based on the provided email
     const existingUser = await User.findOne({ email });
-    console.log(existingUser);
+    // console.log(existingUser);
 
     // Check if the user exists
     if (!existingUser) {

@@ -19,7 +19,7 @@ const createProductsController = (req, res) => {
   // quantity: values.quantity,
   // subCategoryData: subCategoryData,
 
-  console.log("Ami Output",name);
+  // console.log("Ami Output",name);
 
   //   res.send(`/uploads/${req.file.filename}`);
 
@@ -34,7 +34,7 @@ const createProductsController = (req, res) => {
     // subCategoryData: subCategoryData,
   });
 
-  console.log("aaaaaaaaaaaaaa",product);
+  // console.log("aaaaaaaaaaaaaa",product);
   product.save();
 
   res.send({ success: "product created" });

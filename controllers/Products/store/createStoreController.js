@@ -33,7 +33,7 @@ const createStoreController = async (req, res) => {
       res.status(200).send({ success: "Store created successfully!" });
 
       // Log the store details for verification (optional)
-      console.log(store);
+      // console.log(store);
     }
   } catch (error) {
     // Handle any unexpected errors and send a 500 response

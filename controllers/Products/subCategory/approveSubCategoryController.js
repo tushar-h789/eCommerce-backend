@@ -4,7 +4,7 @@ const approveSubCategoryController = async (req, res) => {
   try {
     // Extract categoryId from the request body
     const { id, isActive } = req.body;
-    console.log("Request Body:", req.body);
+    // console.log("Request Body:", req.body);
       // Find the category by id and update its name
       await ApproveSubCategory.findByIdAndUpdate({ _id: id }, { isActive: isActive });
 

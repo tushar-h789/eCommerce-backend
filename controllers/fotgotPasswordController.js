@@ -32,7 +32,7 @@ const forgotPasswordController = async (req, res) => {
           strict: false
         }
         );
-      console.log(updateUser);
+      // console.log(updateUser);
 
       //  Send mail using nodemailer to reset the password
     const transporter = nodemailer.createTransport({
