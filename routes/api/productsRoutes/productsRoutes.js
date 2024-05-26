@@ -22,6 +22,7 @@ const deleteProductController = require("../../../controllers/Products/products/
 const editProductController = require("../../../controllers/Products/products/editProductController");
 const deleteStoreController = require("../../../controllers/Products/store/deleteStoreController");
 const editStoreController = require("../../../controllers/Products/store/editStoreController");
+const singleCategoryController = require("../../../controllers/Products/category/singleCategoryController");
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -39,12 +40,14 @@ const upload = multer({ storage: storage });
 // category api
 router.post("/createcategory", secureApi, createCategoryController);
 router.get("/allcategory", showCategoryController);
+router.get("/singlecategory", singleCategoryController);
 router.delete("/deletecategory", deleteCategoryController);
 router.post("/editcategory", editCategoryController);
 router.post("/approvecategory", approveCategoryController);
 
 // subCategory api
 router.get("/viewsubcategory", viewSubCategoryController);
+router.get("/singlesubcategory", viewSubCategoryController);
 router.post("/createsubcategory", createSubcategoryController);
 router.delete("/deletesubcategory", deleteSubCategoryController);
 router.post("/editsubcategory", editSubCategoryController);

@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-
 const { Schema } = mongoose;
 
 // const variantValueSchema = new Schema({
@@ -31,12 +30,13 @@ const productSchema = new Schema({
   quantity: {
     type: Number,
   },
+  variantsId: [{ type: mongoose.Schema.Types.ObjectId, ref: "Variant" }]
   // variantsId: { type: mongoose.Schema.Types.ObjectId, ref: "Variant" },
   // variantsId: { type: mongoose.Types.ObjectId, ref: "Variant" },
-  subCategoryId: {
-    type: mongoose.Types.ObjectId,
-    ref: "SubCategory",
-  },
+  // subCategoryId: {
+  //   type: mongoose.Types.ObjectId,
+  //   ref: "SubCategory",
+  // },
 });
 
 module.exports = mongoose.model("Product", productSchema);
