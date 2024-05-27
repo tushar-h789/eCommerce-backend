@@ -1,42 +1,36 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-// const variantValueSchema = new Schema({
-//   name: String,
-//   stock: Number,
-// });
-
-// const variantSchema = new Schema({
-//   name: String,
-//   value: [variantValueSchema],
-// });
-
+// Define the schema for the 'Product' model
 const productSchema = new Schema({
   name: {
-    type: String,
+    type: String, // Product name
+    required: true, // Name is required
   },
   description: {
-    type: String,
+    type: String, // Product description
   },
   image: {
-    type: String,
+    type: String, // Path to product image
   },
   regularprice: {
-    type: Number,
+    type: Number, // Regular price of the product
+    required: true, // Regular price is required
   },
   salesprice: {
-    type: Number,
+    type: Number, // Sales price of the product (if applicable)
   },
   quantity: {
-    type: Number,
+    type: Number, // Quantity of the product available
+    required: true, // Quantity is required
   },
-  variantsId: [{ type: mongoose.Schema.Types.ObjectId, ref: "Variant" }]
-  // variantsId: { type: mongoose.Schema.Types.ObjectId, ref: "Variant" },
-  // variantsId: { type: mongoose.Types.ObjectId, ref: "Variant" },
-  // subCategoryId: {
-  //   type: mongoose.Types.ObjectId,
-  //   ref: "SubCategory",
-  // },
+  variantsId: [
+    {
+      type: mongoose.Schema.Types.ObjectId, // Reference to the Variant model
+      ref: "Variant",
+    }
+  ],
 });
 
+// Create and export the 'Product' model based on the schema
 module.exports = mongoose.model("Product", productSchema);

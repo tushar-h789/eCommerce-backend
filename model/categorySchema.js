@@ -5,16 +5,22 @@ const { Schema } = mongoose;
 const categorySchema = new Schema({
     name: {
         type: String,
-        required: true,
+        required: true, // Name is required
     },
     isActive: {
         type: Boolean,
-        default: false,
+        default: false, // Default value for isActive is false
     },
     ownerId: {
         type: mongoose.Types.ObjectId,
-        ref: "User",
+        ref: "User", // Reference to the User model
     },
+    subCategoryId: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "SubCategory", // Reference to the SubCategory model
+        }
+    ],
 });
 
 // Create and export the 'Category' model based on the schema

@@ -47,7 +47,7 @@ router.post("/approvecategory", approveCategoryController);
 
 // subCategory api
 router.get("/viewsubcategory", viewSubCategoryController);
-router.get("/singlesubcategory", viewSubCategoryController);
+// router.get("/singlesubcategory", viewSubCategoryController);
 router.post("/createsubcategory", createSubcategoryController);
 router.delete("/deletesubcategory", deleteSubCategoryController);
 router.post("/editsubcategory", editSubCategoryController);

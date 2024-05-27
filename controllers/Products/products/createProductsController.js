@@ -1,43 +1,47 @@
 const Products = require("../../../model/productSchema");
 
-const createProductsController = (req, res) => {
-  const {
-    name,
-    description,
-    // variantsId,
-    // subCategoryData,
-    regularprice,
-    salesprice,
-    quantity,
-  } = req.body;
+const createProductsController = async (req, res) => {
+  try {
+    const {
+      name,
+      description,
+      variant,
+      regularprice,
+      salesprice,
+      quantity,
+    } = req.body;
 
-  // name: values.name,
-  // description: description,
-  // avatar: image,
-  // regularprice: values.regularprice,
-  // salesprice: values.salesprice,
-  // quantity: values.quantity,
-  // subCategoryData: subCategoryData,
+    // Validate required fields
+    if (!name || !regularprice || !quantity) {
+      return res.status(400).send({ error: "Name, regular price, and quantity are required" });
+    }
 
-  // console.log("Ami Output",name);
+    // Validate file upload
+    if (!req.file || !req.file.filename) {
+      return res.status(400).send({ error: "Product image is required" });
+    }
 
-  //   res.send(`/uploads/${req.file.filename}`);
+    // Create new product instance
+    const product = new Products({
+      name: name,
+      description: description,
+      variant: variant,
+      image: `/uploads/${req.file.filename}`,
+      regularprice: regularprice,
+      salesprice: salesprice,
+      quantity: quantity,
+    });
 
-  const product = new Products({
-    name: name,
-    description: description,
-    // variantsId: variantsId,
-    image: `/uploads/${req.file.filename}`,
-    regularprice: regularprice,
-    salesprice: salesprice,
-    quantity: quantity,
-    // subCategoryData: subCategoryData,
-  });
+    // Save the product to the database
+    await product.save();
 
-  // console.log("aaaaaaaaaaaaaa",product);
-  product.save();
-
-  res.send({ success: "product created" });
+    // Respond with success message
+    res.status(201).send({ success: "Product created successfully", product: product });
+  } catch (error) {
+    // Handle errors
+    console.error("Error creating product:", error);
+    res.status(500).send({ error: "Internal Server Error" });
+  }
 };
 
 module.exports = createProductsController;
