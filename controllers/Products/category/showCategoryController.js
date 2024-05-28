@@ -3,10 +3,7 @@ const Category = require("../../../model/categorySchema");
 const showCategoryController = async (req, res) => {
   try {
     // Fetch all categories and populate the 'ownerId' field, excluding the 'password' field from the owner's information.
-    const categoryData = await Category.find({}).populate(
-      "ownerId",
-      "-password",
-    );
+    const categoryData = await Category.find({}).populate("subCategoryId");
 
     // Send the category data as a response.
     res.send({ success: "categories found", data: categoryData });
