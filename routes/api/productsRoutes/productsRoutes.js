@@ -23,6 +23,7 @@ const editProductController = require("../../../controllers/Products/products/ed
 const deleteStoreController = require("../../../controllers/Products/store/deleteStoreController");
 const editStoreController = require("../../../controllers/Products/store/editStoreController");
 const singleCategoryController = require("../../../controllers/Products/category/singleCategoryController");
+const singleProductController = require("../../../controllers/Products/products/singleProductController");
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -55,6 +56,7 @@ router.post("/approvesubcategory", approveSubCategoryController);
 
 //products api
 router.get('/viewproducts', viewProductsController)
+router.get('/singleproduct', singleProductController)
 router.post(
   "/createproducts",
   upload.single("avatar"),
